@@ -1,0 +1,595 @@
+<!doctype html>
+<html lang="mr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>दहावी शोध — इयत्ता १० वी महाराष्ट्र बोर्ड | Class 10 Search</title>
+<meta name="description" content="इयत्ता १० वी (महाराष्ट्र बोर्ड) साठी मराठी आणि इंग्रजी प्रश्नोत्तर शोध — सर्व विषय. Bilingual question-answer search for Maharashtra Board Class 10.">
+<meta name="theme-color" content="#4f46e5">
+<style>
+:root{
+  --bg:#ffffff; --bg2:#f7f8fc; --fg:#111827; --muted:#5f6b7a; --line:#e6e9f0;
+  --accent:#4f46e5; --accent-soft:#eef0ff; --ok:#0f7b52; --ok-soft:#e6f6ee;
+  --chip:#f2f4f9; --shadow:0 1px 2px rgba(16,24,40,.06),0 8px 24px rgba(16,24,40,.06);
+  --radius:16px;
+}
+html[data-theme="dark"]{
+  --bg:#0e1116; --bg2:#151a21; --fg:#e9eef5; --muted:#98a2b3; --line:#232a34;
+  --accent:#8b8bff; --accent-soft:#1c2030; --ok:#3ddc97; --ok-soft:#12251d;
+  --chip:#1a2028; --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 30px rgba(0,0,0,.35);
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  background:var(--bg); color:var(--fg);
+  font-family:"Segoe UI",Roboto,"Noto Sans","Noto Sans Devanagari",system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;
+  -webkit-font-smoothing:antialiased; line-height:1.55;
+}
+a{color:var(--accent);text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+.wrap{max-width:860px;margin:0 auto;padding:0 18px}
+/* ---------- top bar ---------- */
+.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;gap:12px;height:58px}
+.brand{display:flex;align-items:center;gap:9px;font-weight:700;font-size:17px;letter-spacing:-.2px}
+.dot{width:26px;height:26px;border-radius:9px;background:linear-gradient(135deg,var(--accent),#22c1a4);display:grid;place-items:center;color:#fff;font-size:13px;font-weight:800}
+.spacer{flex:1}
+.tbtn{border:1px solid var(--line);background:var(--bg2);border-radius:10px;padding:6px 10px;font-size:13px;color:var(--muted)}
+.tbtn:hover{color:var(--fg);border-color:var(--accent)}
+.seg{display:flex;border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.seg button{padding:6px 11px;font-size:13px;color:var(--muted)}
+.seg button.on{background:var(--accent);color:#fff}
+/* ---------- hero ---------- */
+.hero{padding:56px 0 8px;text-align:center}
+.hero.hide{display:none}
+.hero h1{font-size:clamp(28px,5vw,44px);margin:0 0 6px;letter-spacing:-.8px}
+.hero h1 .mr{display:block;font-size:clamp(20px,3.4vw,26px);font-weight:600;color:var(--muted);margin-top:6px;letter-spacing:0}
+.hero p{color:var(--muted);margin:10px 0 0;font-size:14.5px}
+/* ---------- search ---------- */
+.searchbar{position:relative;margin:22px auto 0;max-width:680px}
+.searchbar input{
+  width:100%;padding:16px 52px 16px 48px;font-size:16.5px;border-radius:999px;
+  border:1px solid var(--line);background:var(--bg2);color:var(--fg);outline:none;
+  box-shadow:var(--shadow); transition:border-color .15s, box-shadow .15s;
+}
+.searchbar input:focus{border-color:var(--accent);box-shadow:0 0 0 4px var(--accent-soft)}
+.searchbar .ico{position:absolute;left:18px;top:50%;transform:translateY(-50%);color:var(--muted)}
+.searchbar .clr{position:absolute;right:12px;top:50%;transform:translateY(-50%);width:30px;height:30px;border-radius:50%;color:var(--muted);display:none;place-items:center}
+.searchbar .clr:hover{background:var(--chip);color:var(--fg)}
+.searchbar.has .clr{display:grid}
+.kbd{font-size:11px;color:var(--muted);border:1px solid var(--line);border-radius:5px;padding:1px 5px}
+/* ---------- chips ---------- */
+.chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:18px 0 6px}
+.chip{background:var(--chip);border:1px solid transparent;border-radius:999px;padding:7px 13px;font-size:13px;color:var(--muted)}
+.chip:hover{color:var(--fg);border-color:var(--line)}
+.chip.on{background:var(--accent-soft);color:var(--accent);border-color:color-mix(in srgb,var(--accent) 35%,transparent);font-weight:600}
+/* ---------- results ---------- */
+.meta{display:flex;align-items:center;gap:10px;color:var(--muted);font-size:13px;margin:26px 0 12px}
+.meta b{color:var(--fg)}
+.card{background:var(--bg);border:1px solid var(--line);border-radius:var(--radius);padding:16px 18px;margin-bottom:12px;box-shadow:var(--shadow);transition:border-color .12s,transform .12s}
+.card:hover{border-color:color-mix(in srgb,var(--accent) 40%,var(--line))}
+.card.sel{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+.badges{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:9px}
+.b{font-size:11.5px;padding:3px 9px;border-radius:999px;background:var(--chip);color:var(--muted);border:1px solid var(--line)}
+.b.sub{color:var(--accent);background:var(--accent-soft);border-color:transparent;font-weight:600}
+.b.mcq{color:var(--ok);background:var(--ok-soft);border-color:transparent;font-weight:600}
+.q{font-size:16.5px;font-weight:650;margin:0 0 8px;letter-spacing:-.2px}
+.a{font-size:15px;color:var(--fg);margin:0;white-space:pre-wrap}
+.a .lbl{color:var(--muted);font-weight:600;margin-right:4px}
+.opts{list-style:none;margin:12px 0 0;padding:0;display:grid;gap:7px}
+.opts li{border:1px solid var(--line);border-radius:11px;padding:8px 12px;font-size:14.5px;display:flex;gap:9px;align-items:flex-start;background:var(--bg2)}
+.opts li .k{font-weight:700;color:var(--muted);min-width:16px}
+.opts li.ok{border-color:color-mix(in srgb,var(--ok) 55%,var(--line));background:var(--ok-soft)}
+.opts li.ok .k{color:var(--ok)}
+.opts li.ok::after{content:"✓";color:var(--ok);font-weight:800;margin-left:auto}
+mark{background:color-mix(in srgb,var(--accent) 22%,transparent);color:inherit;border-radius:4px;padding:0 2px}
+.row{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
+.mini{font-size:12.5px;color:var(--muted);border:1px solid var(--line);border-radius:9px;padding:5px 10px;background:var(--bg2)}
+.mini:hover{color:var(--accent);border-color:var(--accent)}
+.empty{text-align:center;color:var(--muted);padding:46px 10px}
+.empty h3{color:var(--fg);margin:0 0 8px;font-size:17px}
+.sugg{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:14px}
+/* ---------- tabs ---------- */
+.tabs{display:flex;gap:6px;justify-content:center;margin:16px 0 0}
+.tabs button{padding:8px 16px;border-radius:999px;border:1px solid var(--line);background:var(--bg2);font-size:13.5px;color:var(--muted)}
+.tabs button.on{background:var(--accent);color:#fff;border-color:transparent;font-weight:600}
+/* ---------- website rows ---------- */
+.site{display:flex;gap:12px;padding:13px 14px;border:1px solid var(--line);border-radius:14px;margin-bottom:10px;background:var(--bg);box-shadow:var(--shadow);transition:border-color .12s}
+.site:hover{border-color:color-mix(in srgb,var(--accent) 40%,var(--line))}
+.site.sel{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+.fav{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;font-weight:800;font-size:14px;color:#fff;background:linear-gradient(135deg,var(--accent),#22c1a4);flex:0 0 auto}
+.site .body{min-width:0;flex:1}
+.site .ttl{font-weight:650;font-size:15px;margin:0 0 2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.site .url{font-size:12.5px;color:var(--ok);margin:0 0 3px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.site .dsc{font-size:13px;color:var(--muted);margin:0;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.site .go{align-self:center;font-size:12.5px;border:1px solid var(--line);border-radius:9px;padding:5px 10px;color:var(--muted);white-space:nowrap}
+.site .go:hover{color:var(--accent);border-color:var(--accent)}
+/* ---------- misc ---------- */
+.foot{border-top:1px solid var(--line);margin-top:44px;padding:22px 0 40px;color:var(--muted);font-size:12.5px;text-align:center}
+.foot a{color:var(--muted);text-decoration:underline}
+.toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%) translateY(20px);background:var(--fg);color:var(--bg);padding:9px 16px;border-radius:999px;font-size:13px;opacity:0;transition:.2s;pointer-events:none;z-index:50}
+.toast.on{opacity:1;transform:translateX(-50%)}
+.skel{height:92px;border-radius:var(--radius);background:linear-gradient(90deg,var(--bg2),var(--chip),var(--bg2));background-size:200% 100%;animation:sh 1.1s linear infinite;margin-bottom:12px}
+@keyframes sh{0%{background-position:200% 0}100%{background-position:-200% 0}}
+@media(max-width:520px){.hero{padding:34px 0 4px}.top .wrap{height:52px}.searchbar input{padding:14px 46px 14px 44px;font-size:15.5px}}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#" onclick="resetAll();return false"><span class="dot">१०</span><span id="brandTxt">दहावी शोध</span></a>
+    <span class="spacer"></span>
+    <div class="seg" id="langSeg">
+      <button data-lang="mr" class="on">मराठी</button>
+      <button data-lang="en">English</button>
+    </div>
+    <button class="tbtn" id="themeBtn" title="Theme">◐</button>
+  </div>
+</header>
+
+<nav class="tabs" id="tabs">
+  <button data-mode="qa" class="on" id="tabQa">प्रश्नोत्तरे</button>
+  <button data-mode="sites" id="tabSites">वेबसाइट्स</button>
+</nav>
+
+<main class="wrap">
+  <section class="hero" id="hero">
+    <h1 id="heroTitle">दहावी शोध<span class="mr">इयत्ता १० वी • महाराष्ट्र बोर्ड • सर्व विषय</span></h1>
+    <p id="heroSub">मराठी आणि इंग्रजी — प्रश्न विचारा, थेट उत्तर मिळवा.</p>
+  </section>
+
+  <div class="searchbar" id="sbar">
+    <span class="ico">⌕</span>
+    <input id="q" type="search" autocomplete="off" spellcheck="false" placeholder="प्रश्न शोधा… उदा. गुरुत्वाकर्षण, Pythagoras, समास" aria-label="Search">
+    <button class="clr" id="clr" aria-label="Clear">✕</button>
+  </div>
+
+  <div class="chips" id="chips"></div>
+  <div class="meta" id="meta" style="display:none"></div>
+  <div id="results"></div>
+  <div class="foot">
+    <div id="footTxt"></div>
+  </div>
+</main>
+<div class="toast" id="toast"></div>
+
+<script>
+"use strict";
+const D = "data/";
+const S = { lang: localStorage.getItem("ds_lang") || "mr", theme: localStorage.getItem("ds_theme") || "light",
+  sub: "all", idx: null, letters: null, cache: {}, results: [], sel: -1, man: null, q: "" };
+
+const T = {
+  mr: { brand:"दहावी शोध", title:"दहावी शोध", sub:"इयत्ता १० वी • महाराष्ट्र बोर्ड • सर्व विषय",
+    tag:"मराठी आणि इंग्रजी — प्रश्न विचारा, थेट उत्तर मिळवा.",
+    ph:"प्रश्न शोधा… उदा. गुरुत्वाकर्षण, Pythagoras, समास",
+    ans:"उत्तर", all:"सर्व विषय", found:(q)=>`“${q}” साठी उत्तरे`,
+    none:"काहीही सापडले नाही", noneSub:"शब्द थोडा बदलून पाहा किंवा खालील विषय निवडा.",
+    total:(n,s)=>`${n} प्रश्न • ${s} विषय • मराठी + इंग्रजी`,
+    foot:"स्रोत: बालभारती इयत्ता १० वी अभ्यासक्रम (महाराष्ट्र राज्य मंडळ). प्रश्न व उत्तरे शैक्षणिक उपयोगासाठी संकलित.",
+    copy:"कॉपी", copied:"कॉपी झाले", chap:"या प्रकरणातील अजून", mcq:"बहुपर्यायी", open:"उघडा" },
+  en: { brand:"Class 10 Search", title:"Class 10 Search", sub:"Std X • Maharashtra Board • All subjects",
+    tag:"Ask in Marathi or English — get the answer straight away.",
+    ph:"Search a question… e.g. gravitation, Pythagoras, samas",
+    ans:"Answer", all:"All subjects", found:(q)=>`answers for “${q}”`,
+    none:"No results", noneSub:"Try a different word or pick a subject below.",
+    total:(n,s)=>`${n} questions • ${s} subjects • Marathi + English`,
+    foot:"Based on the Balbharati Std X syllabus (Maharashtra State Board). Questions and answers compiled for study use.",
+    copy:"Copy", copied:"Copied", chap:"More from this chapter", mcq:"MCQ", open:"Open" }
+};
+const t = () => T[S.lang];
+
+/* ---------- utils ---------- */
+const norm = s => (s||"").toLowerCase().replace(/[’‘]/g,"'").replace(/[^\w\u0900-\u097F]+/g," ").trim();
+const ALIAS = {"राज्यघटना":["संविधान"],"प्रदुषण":["प्रदूषण"],"न्यूटन":["newton"],
+  "पायथागोरस":["pythagoras"],"प्रकाशसंश्लेषण":["photosynthesis"],"अर्थसंकल्प":["budget"],
+  "मुलाखत":["interview"],"म्हणी":["mhani","म्हण"]};
+const toks = s => { const out=[]; for(const x of norm(s).split(" ")){ if(x.length>1||/^\d+$/.test(x)){ out.push(x); (ALIAS[x]||[]).forEach(a=>out.push(a)); } } return out; };
+const esc = s => (s||"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+function hl(text, words){
+  let out = esc(text);
+  if(!words.length) return out;
+  const pat = words.filter(w=>w.length>1).map(w=>w.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")).join("|");
+  if(!pat) return out;
+  try{ return out.replace(new RegExp("("+pat+")","gi"), "<mark>$1</mark>"); }catch(e){ return out; }
+}
+function toast(msg){ const el=document.getElementById("toast"); el.textContent=msg; el.classList.add("on"); setTimeout(()=>el.classList.remove("on"),1400); }
+
+/* ---------- boot ---------- */
+async function boot(){
+  document.documentElement.dataset.theme = S.theme;
+  applyLang();
+  try{
+    const [idx, man] = await Promise.all([
+      fetch(D+"index.json").then(r=>r.json()),
+      fetch(D+"manifest.json").then(r=>r.json())
+    ]);
+    S.idx = idx.t; S.letters = idx.l; S.man = man;
+    S.keys = Object.keys(S.idx).sort();
+    renderChips(); renderMeta0();
+  }catch(e){
+    document.getElementById("results").innerHTML = '<div class="empty"><h3>Index load failed</h3><p>'+esc(e.message)+'</p></div>';
+  }
+  const q = new URLSearchParams(location.search).get("q");
+  if(q){ document.getElementById("q").value = q; run(q); }
+}
+
+function applyLang(){
+  const L = t();
+  document.documentElement.lang = S.lang;
+  document.getElementById("brandTxt").textContent = L.brand;
+  document.getElementById("heroTitle").innerHTML = esc(L.title)+'<span class="mr">'+esc(L.sub)+'</span>';
+  document.getElementById("heroSub").textContent = L.tag;
+  document.getElementById("q").placeholder = L.ph;
+  document.getElementById("footTxt").textContent = L.foot;
+  document.querySelectorAll("#langSeg button").forEach(b=>b.classList.toggle("on", b.dataset.lang===S.lang));
+  renderChips(); renderMeta0();
+  if(S.q) run(S.q);
+}
+
+function renderMeta0(){
+  const m = document.getElementById("meta");
+  if(!S.man || S.q) return;
+  m.style.display="flex";
+  m.innerHTML = esc(t().total(S.man.total, S.man.subjects.length));
+}
+function renderChips(){
+  const box = document.getElementById("chips");
+  if(!S.man) return;
+  const L = t();
+  let h = `<button class="chip ${S.sub==="all"?"on":""}" data-sub="all">${esc(L.all)}</button>`;
+  for(const s of S.man.subjects){
+    const name = S.lang==="mr" ? s.mr : s.en;
+    h += `<button class="chip ${S.sub===s.en?"on":""}" data-sub="${esc(s.en)}">${esc(name)}</button>`;
+  }
+  box.innerHTML = h;
+  box.querySelectorAll(".chip").forEach(c=>c.onclick=()=>{
+    S.sub = c.dataset.sub; renderChips();
+    if(S.q) run(S.q); else { document.getElementById("q").focus(); }
+  });
+}
+
+/* ---------- search ---------- */
+function prefixRange(tok){
+  let lo=0, hi=S.keys.length;
+  while(lo<hi){ const mid=(lo+hi)>>1; if(S.keys[mid]<tok) lo=mid+1; else hi=mid; }
+  let end=lo;
+  while(end<S.keys.length && S.keys[end].startsWith(tok)) end++;
+  return [lo,end];
+}
+function searchTokens(qt){
+  const score = new Map(); const hitCount = new Map();
+  const idf = tok => { const [a,b]=prefixRange(tok); let df=0; for(let i=a;i<b && i<a+6;i++) df+=S.idx[S.keys[i]].length; return 1/Math.log(6+df); };
+  const seenTok = new Set();
+  for(const qtok of qt){
+    if(seenTok.has(qtok)) continue; seenTok.add(qtok);
+    const [a,b] = prefixRange(qtok);
+    const n = Math.min(b-a, 24);
+    for(let i=a;i<b && i<a+n;i++){
+      const key = S.keys[i];
+      const exact = key===qtok;
+      const w = (exact?1.0:0.45) * idf(key) * (1 + Math.min(key.length,20)/60);
+      for(const id of S.idx[key]){
+        score.set(id, (score.get(id)||0) + w);
+        if(exact) hitCount.set(id,(hitCount.get(id)||0)+1);
+      }
+    }
+  }
+  return {score, hitCount};
+}
+async function loadShard(letter){
+  if(S.cache[letter]) return S.cache[letter];
+  const rows = await fetch(D+letter+".json").then(r=>r.json()).catch(()=>[]);
+  const map = new Map(rows.map(r=>[r.id,r]));
+  S.cache[letter]=map; return map;
+}
+async function run(q){
+  S.q = q.trim();
+  const hero = document.getElementById("hero");
+  const box = document.getElementById("results");
+  const meta = document.getElementById("meta");
+  document.getElementById("sbar").classList.toggle("has", !!S.q);
+  if(!S.q){
+    hero.classList.remove("hide"); box.innerHTML=""; meta.style.display="none"; renderMeta0();
+    history.replaceState(null,"",location.pathname); return;
+  }
+  hero.classList.add("hide");
+  if(!S.idx){ box.innerHTML='<div class="skel"></div><div class="skel"></div>'; return; }
+  const qt = toks(q);
+  if(!qt.length){ box.innerHTML=""; return; }
+  const {score, hitCount} = searchTokens(qt);
+  const need = Math.max(1, Math.ceil(qt.length*0.6));
+  let cands = [...score.entries()].filter(([id])=> (hitCount.get(id)||0)>=Math.min(need, qt.length>=2?1:need) );
+  cands.sort((a,b)=>b[1]-a[1]);
+  let ids = cands.slice(0, 60).map(c=>c[0]);
+  // load needed shards
+  const letters = [...new Set(ids.map(id=>S.letters[id]))];
+  await Promise.all(letters.map(loadShard));
+  let rows = ids.map(id=>{
+    const L = S.letters[id]; const r = S.cache[L] && S.cache[L].get(id); return r;
+  }).filter(Boolean);
+  if(S.sub!=="all") rows = rows.filter(r=>r.s===S.sub);
+  const phrase = norm(q);
+  rows.forEach(r=>{
+    const qn = norm((r.q||"")+" "+(r.qm||"")), an = norm((r.a||"")+" "+(r.am||""));
+    let s = score.get(r.id)||0;
+    if(qn.includes(phrase)) s += 6;
+    if(an.includes(phrase)) s += 2;
+    for(const tk of qt){ if(qn.includes(tk)) s+=0.8; if(an.includes(tk)) s+=0.25; }
+    s += 0.6/(1+Math.abs((r.q||"").length-40)/40);
+    r._s = s;
+  });
+  rows.sort((a,b)=>b._s-a._s);
+  S.results = rows.slice(0,40); S.sel=-1;
+  meta.style.display="flex";
+  meta.innerHTML = `<b>${S.results.length}</b> ${esc(t().found(S.q))}`;
+  render();
+  history.replaceState(null,"","?q="+encodeURIComponent(S.q));
+}
+function render(){
+  const box = document.getElementById("results");
+  if(!S.results.length){
+    const L=t();
+    box.innerHTML = `<div class="empty"><h3>${esc(L.none)}</h3><p>${esc(L.noneSub)}</p></div>`;
+    return;
+  }
+  const words = toks(S.q);
+  box.innerHTML = S.results.map((r,i)=>card(r,i,words)).join("");
+  box.querySelectorAll("[data-copy]").forEach(b=>b.onclick=()=>{
+    const r = S.results[+b.dataset.copy];
+    const txt = `${r.q}\n${t().ans}: ${r.a}`;
+    navigator.clipboard.writeText(txt).then(()=>toast(t().copied)).catch(()=>{});
+  });
+  box.querySelectorAll("[data-chap]").forEach(b=>b.onclick=()=>{
+    const r = S.results[+b.dataset.chap];
+    document.getElementById("q").value = r.c;
+    run(r.c);
+    window.scrollTo({top:0,behavior:"smooth"});
+  });
+  box.querySelectorAll("[data-subj]").forEach(b=>b.onclick=()=>{
+    S.sub = S.results[+b.dataset.subj].s; renderChips(); run(S.q);
+  });
+}
+function card(r,i,words){
+  const mr = S.lang==="mr";
+  const Q = (mr && r.qm) ? r.qm : r.q;
+  const A = (mr && r.am) ? r.am : r.a;
+  const sub = mr ? subMr(r.s) : r.s;
+  const opts = r.o ? (mr && r.om ? r.om : r.o) : null;
+  let h = `<article class="card${i===S.sel?" sel":""}" id="c${i}">
+    <div class="badges">
+      <span class="b sub">${esc(sub)}</span>
+      <span class="b">${esc(r.c)}</span>
+      ${r.k==="mcq"?`<span class="b mcq">${esc(t().mcq)}</span>`:""}
+    </div>
+    <p class="q">${hl(Q,words)}</p>
+    <p class="a"><span class="lbl">${esc(t().ans)}:</span>${hl(A,words)}</p>`;
+  if(opts){
+    h += `<ul class="opts">` + opts.map((o,k)=>
+      `<li class="${k===r.x?"ok":""}"><span class="k">${"ABCD"[k]}</span><span>${esc(o)}</span></li>`).join("") + `</ul>`;
+  }
+  h += `<div class="row">
+      <button class="mini" data-copy="${i}">⧉ ${esc(t().copy)}</button>
+      <button class="mini" data-chap="${i}">▸ ${esc(t().chap)}</button>
+      <button class="mini" data-subj="${i}">◧ ${esc(sub)}</button>
+    </div></article>`;
+  return h;
+}
+function subMr(en){
+  const m = S.man && S.man.subjects.find(x=>x.en===en);
+  return m ? m.mr : en;
+}
+
+/* ---------- events ---------- */
+let timer=null;
+const qi = document.getElementById("q");
+qi.addEventListener("input", e=>{
+  const v = e.target.value;
+  document.getElementById("sbar").classList.toggle("has", !!v);
+  clearTimeout(timer);
+  timer = setTimeout(()=>run(v), 70);
+});
+qi.addEventListener("keydown", e=>{
+  if(e.key==="ArrowDown"||e.key==="ArrowUp"){
+    if(!S.results.length) return;
+    e.preventDefault();
+    S.sel = e.key==="ArrowDown" ? Math.min(S.sel+1, S.results.length-1) : Math.max(S.sel-1, 0);
+    document.querySelectorAll(".card").forEach((c,i)=>c.classList.toggle("sel", i===S.sel));
+    const el = document.getElementById("c"+S.sel); if(el) el.scrollIntoView({block:"nearest"});
+  } else if(e.key==="Escape"){
+    qi.value=""; run("");
+  }
+});
+document.getElementById("clr").onclick = ()=>{ qi.value=""; run(""); qi.focus(); };
+document.getElementById("langSeg").onclick = e=>{
+  const b = e.target.closest("button[data-lang]"); if(!b) return;
+  S.lang = b.dataset.lang; localStorage.setItem("ds_lang", S.lang); applyLang();
+};
+document.getElementById("themeBtn").onclick = ()=>{
+  S.theme = S.theme==="light" ? "dark" : "light";
+  document.documentElement.dataset.theme = S.theme;
+  localStorage.setItem("ds_theme", S.theme);
+};
+document.addEventListener("keydown", e=>{
+  if(e.key==="/" && document.activeElement!==qi){ e.preventDefault(); qi.focus(); }
+});
+function resetAll(){ qi.value=""; run(""); window.scrollTo({top:0,behavior:"smooth"}); }
+boot();
+</script>
+<script>
+/* ================= वेबसाइट्स directory (second search mode) ================= */
+S.mode = "qa"; S.sidx = null; S.sletters = null; S.sman = null; S.scache = {}; S.sres = []; S.ssel = -1; S.scat = "all";
+const ST = {
+  mr: { qa:"प्रश्नोत्तरे", sites:"वेबसाइट्स", phSites:"वेबसाइट शोधा… उदा. ebalbharati, भूगोल notes, isro",
+        found:n=>`${n} वेबसाइट्स`, none:"वेबसाइट सापडली नाही", noneSub:"वेगळा शब्द वापरून पाहा — उदा. board, ncert, notes.",
+        open:"उघडा", allCat:"सर्व", total:(n,d)=>`${n} वेबसाइट्स • ${d} डोमेन • प्रश्नोत्तरे व वेबसाइट्स दोन्ही शोधता येतात`,
+        cats:{official:"अधिकृत",study:"अभ्यास",marathi:"मराठी",reference:"संदर्भ",wiki:"विकिपीडिया"} },
+  en: { qa:"Q & A", sites:"Websites", phSites:"Search websites… e.g. ebalbharati, geography notes, isro",
+        found:n=>`${n} websites`, none:"No website found", noneSub:"Try another word — e.g. board, ncert, notes.",
+        open:"Open", allCat:"All", total:(n,d)=>`${n} websites • ${d} domains`,
+        cats:{official:"Official",study:"Study",marathi:"Marathi",reference:"Reference",wiki:"Wikipedia"} }
+};
+const st = () => ST[S.lang];
+
+function paintTabs(){
+  document.getElementById("tabQa").textContent = st().qa;
+  document.getElementById("tabSites").textContent = st().sites;
+  document.getElementById("tabQa").classList.toggle("on", S.mode === "qa");
+  document.getElementById("tabSites").classList.toggle("on", S.mode === "sites");
+}
+
+async function loadSites(){
+  if (S.sidx) return;
+  const [idx, man] = await Promise.all([
+    fetch("data/sites/index.json").then(r => r.json()),
+    fetch("data/sites/manifest.json").then(r => r.json())
+  ]);
+  S.sidx = idx.t; S.sletters = idx.l; S.sman = man;
+  S.skeys = Object.keys(S.sidx).sort();
+}
+
+function sitePrefixRange(tok){
+  let lo = 0, hi = S.skeys.length;
+  while (lo < hi) { const m = (lo + hi) >> 1; if (S.skeys[m] < tok) lo = m + 1; else hi = m; }
+  let end = lo;
+  while (end < S.skeys.length && S.skeys[end].startsWith(tok)) end++;
+  return [lo, end];
+}
+
+async function loadSiteShard(l){
+  if (S.scache[l]) return S.scache[l];
+  const rows = await fetch("data/sites/" + l + ".json").then(r => r.json()).catch(() => []);
+  S.scache[l] = new Map(rows.map(r => [r.id, r]));
+  return S.scache[l];
+}
+
+async function runSites(q){
+  const hero = document.getElementById("hero");
+  const box = document.getElementById("results");
+  const meta = document.getElementById("meta");
+  const bar = document.getElementById("sbar");
+  document.getElementById("q").placeholder = st().phSites;
+  bar.classList.toggle("has", !!q);
+  await loadSites();
+  hero.classList.add("hide");
+  if (!q){
+    S.sres = []; box.innerHTML = ""; S.scat = "all";
+    meta.style.display = "flex";
+    meta.innerHTML = esc(st().total(S.sman.total, S.sman.domains));
+    paintCatChips();
+    return;
+  }
+  const qt = toks(q);
+  const score = new Map(), hits = new Map();
+  for (const tk of new Set(qt)){
+    const [a, b] = sitePrefixRange(tk);
+    const n = Math.min(b - a, 24);
+    for (let i = a; i < b && i < a + n; i++){
+      const key = S.skeys[i], exact = key === tk;
+      const w = exact ? 1 : 0.45;
+      for (const id of S.sidx[key]){ score.set(id, (score.get(id) || 0) + w); if (exact) hits.set(id, (hits.get(id) || 0) + 1); }
+    }
+  }
+  const need = Math.max(1, Math.ceil(qt.length * 0.6));
+  let cands = [...score.entries()].filter(([id]) => (hits.get(id) || 0) >= Math.min(need, qt.length >= 2 ? 1 : need));
+  cands.sort((x, y) => y[1] - x[1]);
+  const ids = cands.slice(0, 60).map(c => c[0]);
+  const letters = [...new Set(ids.map(id => S.sletters[id]))];
+  await Promise.all(letters.map(loadSiteShard));
+  let rows = ids.map(id => S.scache[S.sletters[id]] && S.scache[S.sletters[id]].get(id)).filter(Boolean);
+  if (S.scat !== "all") rows = rows.filter(r => r.c === S.scat);
+  const cw = { official: 0.7, study: 0.6, marathi: 0.35, wiki: 0.25, reference: 0 };
+  rows.sort((x, y) => ((score.get(y.id) || 0) + (cw[y.c] || 0)) - ((score.get(x.id) || 0) + (cw[x.c] || 0)));
+  S.sres = rows.slice(0, 40); S.ssel = -1;
+  meta.style.display = "flex";
+  meta.innerHTML = `<b>${S.sres.length}</b> ${esc(st().found(S.sres.length))}`;
+  paintCatChips();
+  renderSites();
+}
+
+function paintCatChips(){
+  const box = document.getElementById("chips");
+  if (!S.sman) return;
+  if (S.mode !== "sites"){ renderChips(); return; }
+  const cats = S.sman.categories || {};
+  let h = `<button class="chip ${S.scat === "all" ? "on" : ""}" data-cat="all">${esc(st().allCat)}</button>`;
+  for (const c of Object.keys(cats).sort((a, b) => cats[b] - cats[a])){
+    h += `<button class="chip ${S.scat === c ? "on" : ""}" data-cat="${c}">${esc(st().cats[c] || c)}</button>`;
+  }
+  box.innerHTML = h;
+  box.querySelectorAll(".chip").forEach(b => b.onclick = () => {
+    S.scat = b.dataset.cat;
+    paintCatChips();
+    runSites(document.getElementById("q").value);
+  });
+}
+
+function renderSites(){
+  const box = document.getElementById("results");
+  if (!S.sres.length){
+    box.innerHTML = `<div class="empty"><h3>${esc(st().none)}</h3><p>${esc(st().noneSub)}</p></div>`;
+    return;
+  }
+  const words = toks(document.getElementById("q").value);
+  box.innerHTML = S.sres.map((r, i) => {
+    const initial = (r.d || "?")[0].toUpperCase();
+    return `<article class="site${i === S.ssel ? " sel" : ""}" id="s${i}">
+      <div class="fav">${esc(initial)}</div>
+      <div class="body">
+        <p class="ttl">${hl(r.t, words)}</p>
+        <p class="url">${esc(r.d)}${esc((r.u.split(r.d)[1] || "").slice(0, 60))}</p>
+        <p class="dsc">${hl(r.s || "", words)}</p>
+      </div>
+      <a class="go" href="${esc(r.u)}" target="_blank" rel="noopener noreferrer">${esc(st().open)} ↗</a>
+    </article>`;
+  }).join("");
+}
+
+/* ---- mode switching ---- */
+function setMode(m){
+  S.mode = m;
+  paintTabs();
+  const qi = document.getElementById("q");
+  qi.value = ""; S.q = ""; S.sq = "";
+  document.getElementById("results").innerHTML = "";
+  document.getElementById("meta").style.display = "none";
+  document.getElementById("sbar").classList.remove("has");
+  if (m === "qa"){
+    document.getElementById("hero").classList.remove("hide");
+    document.getElementById("q").placeholder = t().ph;
+    renderChips(); renderMeta0();
+  } else {
+    document.getElementById("hero").classList.add("hide");
+    runSites("");
+  }
+  qi.focus();
+}
+document.getElementById("tabs").onclick = e => {
+  const b = e.target.closest("button[data-mode]");
+  if (b) setMode(b.dataset.mode);
+};
+
+/* route the existing search box + language switch through the active mode */
+const _runQa = run, _renderChips = renderChips, _applyLang = applyLang;
+run = function(q){ return S.mode === "sites" ? runSites(q) : _runQa(q); };
+renderChips = function(){ return S.mode === "sites" ? paintCatChips() : _renderChips(); };
+applyLang = function(){
+  _applyLang();
+  paintTabs();
+  if (S.mode === "sites"){ runSites(document.getElementById("q").value); }
+};
+/* arrow-key navigation for website rows */
+document.getElementById("q").addEventListener("keydown", e => {
+  if (S.mode !== "sites" || (e.key !== "ArrowDown" && e.key !== "ArrowUp")) return;
+  if (!S.sres.length) return;
+  e.preventDefault();
+  S.ssel = e.key === "ArrowDown" ? Math.min(S.ssel + 1, S.sres.length - 1) : Math.max(S.ssel - 1, 0);
+  document.querySelectorAll(".site").forEach((c, i) => c.classList.toggle("sel", i === S.ssel));
+  const el = document.getElementById("s" + S.ssel);
+  if (el) el.scrollIntoView({ block: "nearest" });
+});
+paintTabs();
+</script>
+
+</body>
+</html>
